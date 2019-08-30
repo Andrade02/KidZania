@@ -1,0 +1,7 @@
+<suite name ="KidZania">
+<test name="testngTest">
+    <classes>
+        <class name="testcases.Operations" />
+    </classes>
+</test>
+</suite>
