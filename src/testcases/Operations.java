@@ -15,24 +15,17 @@ import static methods.POMOperations.driver;
 public class Operations {
     POMOperations pom =new POMOperations();
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void DisplayTheConfiguredActivitiesOfAEstablishment() throws InterruptedException {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         pom.launchPage();
         pom.login();
-        driver.findElement(By.xpath("//*[@id=\"main\"]/div[3]/a/img")).click();
-        driver.findElement(By.xpath("//*[@id=\"menu\"]/li[3]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"menusecondary\"]/li[1]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"tableestablishs\"]/tbody/tr[2]/td[2]/div/div")).click();
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement save = driver.findElement(By.xpath("//*[@id=\"btnsave\"]"));
-        js.executeScript("arguments[0].scrollIntoView()", save);
-        driver.findElement(By.xpath("//*[@id=\"btnsave\"]")).click();
+        pom.establishmentSelection();
         pom.waitTime();
         pom.waitTime();
     }
 
-    @Test (priority = 1, enabled = false)
+    @Test (enabled = false)
     public void RegisterTheAccessOfAVisitorToAnActivityPayment() throws InterruptedException {
         String bracelet="NNN7";
         //You can select Efectivo or Tarjeta.
